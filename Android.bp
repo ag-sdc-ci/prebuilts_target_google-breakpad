@@ -1,0 +1,71 @@
+package {
+    default_applicable_licenses: ["external_google-breakpad_license"],
+}
+
+license {
+    name: "external_google-breakpad_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-APSL-2.0",
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-Artistic",
+        "SPDX-license-identifier-BSD",
+        "SPDX-license-identifier-FSFAP",
+        "SPDX-license-identifier-ISC",
+        "SPDX-license-identifier-MIT",
+        "SPDX-license-identifier-Unicode-DFS",
+        "legacy_notice",
+        "legacy_unencumbered",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+prebuilt_apex {
+    name: "org.blisslabs.ag.google.breakpad",
+    apex_name: "org.blisslabs.ag.google.breakpad",
+    source_apex_name: "org.blisslabs.ag.google.breakpad",
+    arch: {
+        x86_64: {
+            src: "org.blisslabs.ag.google.breakpad.apex",
+        },
+    },
+    filename: "org.blisslabs.ag.google.breakpad.apex",
+    prefer: true,
+    installable: true,
+}
+
+cc_prebuilt_library_static {
+    name: "breakpad_client",
+    host_supported: true,
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    export_include_dirs: [
+        "include",
+        "include/breakpad",
+    ],
+    srcs: ["lib/libbreakpad_client.a"],
+}
+
+cc_prebuilt_library_static {
+    name: "libbreakpad_client",
+    host_supported: true,
+    vendor_available: true,
+    product_available: true,
+    recovery_available: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    export_include_dirs: [
+        "include",
+        "include/breakpad",
+    ],
+    srcs: ["lib/libbreakpad_client.a"],
+}

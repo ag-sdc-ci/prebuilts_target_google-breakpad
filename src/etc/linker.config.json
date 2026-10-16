@@ -1,0 +1,10 @@
+{
+	"provideLibs": [	
+		    "libdummy_google_breakpad-x86_64-v2.so",
+		    "libdummy_google_breakpad.so"
+	],
+	"requireLibs": [	
+		    "zlib.so"
+	],
+	"visible": true
+}
